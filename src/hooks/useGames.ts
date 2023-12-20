@@ -1,3 +1,4 @@
+import { GameQuery } from "../App";
 import useData from "./useData";
 import { Genre } from "./useGenres";
 
@@ -16,15 +17,15 @@ export interface Games {
 }
 
 
-const useGames = (selectedGenre: Genre | null, selectedPlatform: Platform | null) => {
-    console.log(selectedGenre , selectedPlatform);
+const useGames = (gameQuery: GameQuery) => {
+    console.log(gameQuery);
     return useData<Games>('/games', {
         params: {
-            genres: selectedGenre?.id, // selected Generes 
-            platforms: selectedPlatform?.id  // selected platform 
+            genres: gameQuery.genre?.id, // selected Generes 
+            platforms: gameQuery.platform?.id  // selected platform 
         }
     },
-        [selectedGenre?.id, selectedPlatform?.id])   // dependencies  are a make changes to fetch a data 
+        [gameQuery.genre?.id, gameQuery.platform?.id])   // dependencies  are a make changes to fetch a data 
 }
 
 
