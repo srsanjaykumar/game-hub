@@ -16,8 +16,15 @@ export interface Games {
 }
 
 
-const useGames = (selectedGenre: Genre | null) => {
-    return useData<Games>('/games', { params: { genres: selectedGenre?.id }  } , [selectedGenre?.id])
+const useGames = (selectedGenre: Genre | null, selectedPlatform: Platform | null) => {
+    console.log(selectedGenre , selectedPlatform);
+    return useData<Games>('/games', {
+        params: {
+            genres: selectedGenre?.id, // selected Generes 
+            platforms: selectedPlatform?.id  // selected platform 
+        }
+    },
+        [selectedGenre?.id, selectedPlatform?.id])   // dependencies  are a make changes to fetch a data 
 }
 
 
