@@ -22,7 +22,7 @@ const useData = <T>(endpoint:string, requestConfig?:AxiosRequestConfig , deps?:a
         const controller = new AbortController();
         setLoading(true)
         apiClient.get<FetchResponse<T>>(endpoint, { signal: controller.signal , ...requestConfig })
-            .then(res => {console.log(res); setData(res.data.results); setLoading(false) })
+            .then(res => {setData(res.data.results); setLoading(false) })
             .catch(err => {
                 if (err instanceof CanceledError) return
                 setError(err.message)
