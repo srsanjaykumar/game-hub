@@ -22,10 +22,11 @@ const useGames = (gameQuery: GameQuery) => {
     return useData<Games>('/games', {
         params: {
             genres: gameQuery.genre?.id, // selected Generes 
-            platforms: gameQuery.platform?.id  // selected platform 
+            platforms: gameQuery.platform?.id, // selected platform 
+            ordering: gameQuery.sortOrder
         }
     },
-        [gameQuery.genre?.id, gameQuery.platform?.id])   // dependencies  are a make changes to fetch a data 
+        [gameQuery.genre?.id, gameQuery.platform?.id, gameQuery.sortOrder])   // dependencies  are a make changes to fetch a data 
 }
 
 
