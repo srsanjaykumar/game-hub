@@ -18,15 +18,16 @@ export interface Games {
 
 
 const useGames = (gameQuery: GameQuery) => {
-    console.log(gameQuery);
+    
     return useData<Games>('/games', {
         params: {
             genres: gameQuery.genre?.id, // selected Generes 
             platforms: gameQuery.platform?.id, // selected platform 
-            ordering: gameQuery.sortOrder
+            ordering: gameQuery.sortOrder,
+            search:gameQuery.searchText
         }
     },
-        [gameQuery.genre?.id, gameQuery.platform?.id, gameQuery.sortOrder])   // dependencies  are a make changes to fetch a data 
+        [gameQuery.genre?.id, gameQuery.platform?.id, gameQuery.sortOrder,gameQuery.searchText])   // dependencies  are a make changes to fetch a data 
 }
 
 

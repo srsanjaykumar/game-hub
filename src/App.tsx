@@ -16,6 +16,7 @@ export interface GameQuery {
 
   //values
   sortOrder: string
+  searchText: string
 }
 
 
@@ -41,7 +42,7 @@ function App() {
 
     >
       <GridItem area={'nav'} >
-        <NavBar />
+        <NavBar onSearch={(searchText) => setGameQuery({ ...gameQuery, searchText })} />
       </GridItem>
 
       <Show above="lg">
@@ -54,7 +55,7 @@ function App() {
         <Flex padding={2} marginBottom={5}>
           <Box marginRight={5} flex={'flex'}>
             <PlatformSelector selectedPlatform={gameQuery.platform} onSelectPlatform={(platform) => setGameQuery({ ...gameQuery, platform })} />
-            <SortSelector 
+            <SortSelector
               sortOrder={gameQuery.sortOrder}  // Get Data in GameQuery 
               onSelectSortOrder={(sortOrder) => {
                 setGameQuery({ ...gameQuery, sortOrder })  // Set Data into GameQuery 
