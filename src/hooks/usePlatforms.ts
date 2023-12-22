@@ -1,3 +1,4 @@
+import platform from "../data/platform";
 import useData from "./useData";
 
 interface Platform {
@@ -8,7 +9,7 @@ interface Platform {
 }
 
 const usePlatforms = () => {
-
+    return {data: platform , error:null }
     return useData<Platform>('/platforms/lists/parents')
 }
 

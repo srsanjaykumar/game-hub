@@ -10,21 +10,21 @@ interface Props {
 const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
 
     const { data, isLoading } = useGenres();
-    let arr = [1, 2, 3, 4, 5, 6, 7]
-    if (isLoading) {
-        return (<List>
-            {arr.map(a => <ListItem key={a} >
-                <HStack>
-                    <Card >
-                        <Skeleton height={"60px"} />
-                        <CardBody>
-                            <SkeletonText />
-                        </CardBody>
-                    </Card>
-                </HStack>
-            </ListItem>)}
-        </List>)
-    }
+    // let arr = [1, 2, 3, 4, 5, 6, 7]
+    // if (isLoading) {
+    //     return (<List>
+    //         {arr.map(a => <ListItem key={a} >
+    //             <HStack>
+    //                 <Card >
+    //                     <Skeleton height={"60px"} />
+    //                     <CardBody>
+    //                         <SkeletonText />
+    //                     </CardBody>
+    //                 </Card>
+    //             </HStack>
+    //         </ListItem>)}
+    //     </List>)
+    // }
     return (
         <>
             <Heading fontSize={'2xl'} marginBottom={3} >Geners</Heading>
