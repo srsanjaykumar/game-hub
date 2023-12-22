@@ -14,20 +14,22 @@ export interface Games {
     background_image: string;
     parent_platforms: { platform: Platform }[];
     metacritic: number;
+    rating_top: number;
+    // rating: number
 }
 
 
 const useGames = (gameQuery: GameQuery) => {
-    
+
     return useData<Games>('/games', {
         params: {
             genres: gameQuery.genre?.id, // selected Generes 
             platforms: gameQuery.platform?.id, // selected platform 
             ordering: gameQuery.sortOrder,
-            search:gameQuery.searchText
+            search: gameQuery.searchText
         }
     },
-        [gameQuery.genre?.id, gameQuery.platform?.id, gameQuery.sortOrder,gameQuery.searchText])   // dependencies  are a make changes to fetch a data 
+        [gameQuery.genre?.id, gameQuery.platform?.id, gameQuery.sortOrder, gameQuery.searchText])   // dependencies  are a make changes to fetch a data 
 }
 
 
