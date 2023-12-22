@@ -1,4 +1,4 @@
-import { Button, Card, CardBody, HStack, Heading, Image, List, ListItem, Skeleton, SkeletonText, Spinner, Text } from "@chakra-ui/react";
+import { Button,  HStack, Heading, Image, List, ListItem ,Card, Skeleton, CardBody, SkeletonText, } from "@chakra-ui/react";
 import useGenres, { Genre } from "../hooks/useGenres"
 import getCroppedImageUrl from "../services/image-utl";
 
@@ -10,21 +10,21 @@ interface Props {
 const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
 
     const { data, isLoading } = useGenres();
-    // let arr = [1, 2, 3, 4, 5, 6, 7]
-    // if (isLoading) {
-    //     return (<List>
-    //         {arr.map(a => <ListItem key={a} >
-    //             <HStack>
-    //                 <Card >
-    //                     <Skeleton height={"60px"} />
-    //                     <CardBody>
-    //                         <SkeletonText />
-    //                     </CardBody>
-    //                 </Card>
-    //             </HStack>
-    //         </ListItem>)}
-    //     </List>)
-    // }
+    let arr = [1, 2, 3, 4, 5, 6, 7]
+    if (isLoading) {
+        return (<List>
+            {arr.map(a => <ListItem key={a} >
+                <HStack>
+                    <Card >
+                        <Skeleton height={"60px"} />
+                        <CardBody>
+                            <SkeletonText />
+                        </CardBody>
+                    </Card>
+                </HStack>
+            </ListItem>)}
+        </List>)
+    }
     return (
         <>
             <Heading fontSize={'2xl'} marginBottom={3} >Geners</Heading>
